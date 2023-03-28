@@ -2,6 +2,7 @@ package repository
 
 import (
 	"azarm-lending-backend/aggregate"
+	"azarm-lending-backend/entity"
 	"errors"
 	"github.com/google/uuid"
 )
@@ -13,7 +14,7 @@ var (
 )
 
 type MemberRepository interface {
-	FindAll() ([]*aggregate.Member, error)
+	FindAll() ([]entity.Person, error)
 	Get(uuid uuid.UUID) (aggregate.Member, error)
 	Add(member aggregate.Member) error
 	Update(member aggregate.Member) error

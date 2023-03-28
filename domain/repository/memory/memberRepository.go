@@ -3,6 +3,7 @@ package memory
 import (
 	"azarm-lending-backend/aggregate"
 	"azarm-lending-backend/domain/repository"
+	"azarm-lending-backend/entity"
 	"fmt"
 	"github.com/google/uuid"
 	"sync"
@@ -17,6 +18,17 @@ func New() *MemberMemRepository {
 	return &MemberMemRepository{
 		members: make(map[uuid.UUID]aggregate.Member),
 	}
+}
+
+func (mr *MemberMemRepository) FindAll() ([]entity.Person, error) {
+	mr.Lock()
+	defer mr.Unlock()
+
+	members := make([]entity.Person, len(mr.members))
+	for _, v := range mr.members {
+		members = append(members, v.Person)
+	}
+	return members, nil
 }
 
 func (mr *MemberMemRepository) Get(id uuid.UUID) (aggregate.Member, error) {

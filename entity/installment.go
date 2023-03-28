@@ -11,4 +11,5 @@ type Installment struct {
 	Amount  uint64
 	Paid    bool
 	DueDate time.Time
+	PayDate time.Time
 }
