@@ -7,7 +7,7 @@ import (
 
 type Loan struct {
 	ID               uuid.UUID
-	amount           uint64
-	noOfInstallments int16
-	createdAt        time.Time
+	Amount           uint64
+	NoOfInstallments uint16
+	CreatedAt        time.Time
 }

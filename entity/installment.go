@@ -7,8 +7,8 @@ import (
 
 type Installment struct {
 	ID      uuid.UUID
-	loadID  uuid.UUID
-	amount  uint64
-	paid    bool
-	dueDate time.Time
+	LoanID  uuid.UUID
+	Amount  uint64
+	Paid    bool
+	DueDate time.Time
 }
